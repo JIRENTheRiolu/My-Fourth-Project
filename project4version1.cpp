@@ -6,37 +6,47 @@ using namespace std;
 int main() {
     clrscr();
 
-    int target = 5;
+    int target=5;
     int guess;
-    int attempts = 0;
-    int maxAttempts = 3;
-    bool won = false;
+    int attempts=0;
+    int maxAttempts=3;
+    bool won=false;
 
-    while (attempts < maxAttempts && !won) {
+    while (attempts<maxAttempts&&!won) {
 
-        cout << "Guess the number (1-10): ";
-        cin >> guess;
+        cout<<"Guess the number (1-10): ";
+        cin>>guess;
 
         attempts++;
 
-        if (guess == target) {
-            cout << "Congratulations! You guessed correctly!" << endl;
-            won = true;
+        if (guess==target) {
+            cout<<"Congratulations! You guessed correctly!"<<endl;
+            won=true;
         }
-        else if (guess < target) {
-            cout << "The target number is larger." << endl;
-        }
-        else {
-            cout << "The target number is smaller." << endl;
+        else{ 
+            if (guess<target) {
+            cout<<"The target number is larger."<<endl;
+            }
+            else {
+                cout<<"The target number is smaller."<<endl;
+            }
+
+            cout<<maxAttempts-attempts;
+
+            if (maxAttempts-attempts==1) {
+                cout<<" chance remaining."<<endl;
+            }
+            else {
+                cout<<" chances remaining."<<endl;
+            }
         }
     }
 
     if (!won) {
-        cout << "You lost! The target number was "
-             << target << "." << endl;
+        cout<<"You lost! The target number was "<<target<<"."<<endl;
     }
 
-    cout << "Total attempts used: " << attempts << endl;
+    cout<<"Total attempts used: "<<attempts<<endl;
 
     return 0;
 }
